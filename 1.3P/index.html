@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Random Text Generator</h2>
+
+<button onclick="changeText()">Change Text</button>
+
+<p id="displayText">Click the button</p>
+
+<script>
+function changeText() {
+  const texts = ["Text 1","Text 2","Text 3","Text 4"];
+  const randomIndex = Math.floor(Math.random() * texts.length);
+  document.getElementById("displayText").innerText = texts[randomIndex];
+}
+</script>
+
+</body>
+</html>
