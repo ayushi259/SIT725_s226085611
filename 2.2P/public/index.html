@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator App</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 10px;
+            margin: 5px;
+        }
+        button {
+            padding: 10px;
+            margin: 5px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Calculator 🔢</h1>
+
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+    <br>
+
+    <button onclick="calculate('add')">Add</button>
+    <button onclick="calculate('subtract')">Subtract</button>
+    <button onclick="calculate('multiply')">Multiply</button>
+    <button onclick="calculate('divide')">Divide</button>
+
+    <div id="result"></div>
+
+    <script>
+        async function calculate(operation) {
+            const a = document.getElementById('num1').value;
+            const b = document.getElementById('num2').value;
+
+            if (!a || !b) {
+                document.getElementById('result').innerText = "Enter both numbers!";
+                return;
+            }
+
+            try {
+                const response = await fetch(`/${operation}?a=${a}&b=${b}`);
+                const data = await response.json();
+
+                if (data.error) {
+                    document.getElementById('result').innerText = data.error;
+                } else {
+                    document.getElementById('result').innerText = "Result: " + data.result;
+                }
+            } catch (error) {
+                document.getElementById('result').innerText = "Error connecting to server";
+            }
+        }
+    </script>
+
+</body>
+</html>
