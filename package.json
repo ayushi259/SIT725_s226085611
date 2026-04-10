@@ -88,5 +88,6 @@
   "bugs": {
     "url": "https://github.com/ayushi259/SIT725_s226085611/issues"
   },
-  "homepage": "https://github.com/ayushi259/SIT725_s226085611#readme"
+  "homepage": "https://github.com/ayushi259/SIT725_s226085611#readme",
+  "devDependencies": {}
 }
