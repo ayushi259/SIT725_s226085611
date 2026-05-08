@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Study Group Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Study Group Chat</h1>
+
+        <input type="text" id="username" placeholder="Enter username">
+
+        <button onclick="joinRoom()">Join Room</button>
+
+        <div id="messages"></div>
+
+        <input type="text" id="messageInput" placeholder="Type message">
+        <button onclick="sendMessage()">Send</button>
+
+        <input type="text" id="topicInput" placeholder="Study topic">
+        <button onclick="sendTopic()">Share Topic</button>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+
+</body>
+</html>
